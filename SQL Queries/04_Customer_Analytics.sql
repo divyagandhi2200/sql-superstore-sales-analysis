@@ -127,7 +127,7 @@ marketing and customer retention strategies.
 
 WITH Customer_sales AS (
 SELECT
-	DISTINCT Customer_Name,
+	Customer_Name,
 	ROUND(SUM(Sales), 2) AS Total_Sales
 FROM dbo.superstore
 GROUP BY Customer_Name
@@ -135,7 +135,7 @@ GROUP BY Customer_Name
 Customers_ranked AS (
 SELECT
 	*,
-	RANK() OVER (ORDER BY total_sales DESC) AS Customer_rank
+	ROW_NUMBER() OVER (ORDER BY total_sales DESC) AS Customer_rank
 FROM Customer_sales
 )
 SELECT 
