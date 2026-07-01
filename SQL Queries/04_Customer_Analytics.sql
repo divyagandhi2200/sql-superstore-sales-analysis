@@ -112,39 +112,76 @@ END;
 /*
 ===============================================================================
 Business Question:
-Which customers contribute to the top 20% of total revenue?
+Which customers contribute to approximately 80% of the company's total revenue?
 
 Objective:
-Identify the highest-performing customers using Pareto Analysis.
+Perform a Pareto Analysis to identify the customers responsible for the
+majority of sales revenue.
 
 Business Value:
-Businesses often generate a large percentage of revenue from a relatively
-small group of customers. Identifying these customers supports targeted
-marketing and customer retention strategies.
+The Pareto Principle (80/20 Rule) suggests that a relatively small
+percentage of customers often generates the majority of business revenue.
+
+Identifying these customers helps businesses prioritize customer retention,
+develop loyalty programs, and allocate marketing resources more effectively.
 
 ===============================================================================
 */
 
-WITH Customer_sales AS (
-SELECT
-	Customer_Name,
-	ROUND(SUM(Sales), 2) AS Total_Sales
-FROM dbo.superstore
-GROUP BY Customer_Name
+WITH Customer_Sales AS (
+    SELECT
+        Customer_ID,
+        Customer_Name,
+        ROUND(SUM(Sales), 2) AS Total_Sales
+    FROM dbo.superstore
+    GROUP BY Customer_ID, Customer_Name
 ),
-Customers_ranked AS (
+Pareto_Analysis AS (
+    SELECT
+        Customer_ID,
+        Customer_Name,
+        Total_Sales,
+        SUM(Total_Sales) OVER (ORDER BY Total_Sales DESC ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW) AS Running_Total,
+        SUM(Total_Sales) OVER () AS Grand_Total
+    FROM Customer_Sales
+)
 SELECT
-	*,
-	ROW_NUMBER() OVER (ORDER BY total_sales DESC) AS Customer_rank
-FROM Customer_sales
-)
-SELECT 
-	*
-FROM Customers_ranked
-WHERE Customer_rank <= (
-    SELECT COUNT(*) * 0.2 FROM Customer_sales
-)
-ORDER BY total_sales DESC;
+    Customer_ID,
+    Customer_Name,
+    Total_Sales,
+    Running_Total,
+    Grand_Total,
+    CASE
+        WHEN Running_Total * 100.0 / Grand_Total <= 80
+        THEN 'High Value Customer'
+        ELSE 'Regular Customer'
+    END AS Customer_Category,
+    ROUND((Running_Total * 100.0 / Grand_Total), 2) AS Cumulative_Percentage
+FROM Pareto_Analysis
+WHERE (Running_Total * 100.0 / Grand_Total) <= 80
+ORDER BY Total_Sales DESC;
+
+/*
+----------------------------------------------------------------------------
+Business Insight:
+
+This analysis identifies the customers responsible for generating the
+first 80% of total business revenue using the Pareto Principle.
+
+The results demonstrate that a relatively small group of customers
+contributes the majority of sales.
+
+These customers should be prioritized through:
+
+• Customer loyalty programs
+• Personalized promotions
+• Premium customer support
+• Retention strategies
+
+Protecting these high-value customers can significantly impact
+long-term revenue and business growth.
+----------------------------------------------------------------------------
+*/
 
 /*
 ===============================================================================
@@ -297,7 +334,7 @@ LEFT JOIN Mon_Analysis
 WHERE Rec_Analysis.Days_Since_Last_Order BETWEEN 0 AND 30 AND Freq_Analysis.Total_Orders >= 5 AND Mon_Analysis.Total_Sales >= 1000;
 
 /*
-===============================================================================
+----------------------------------------------------------------------------
 Business Insight:
 
 The RFM analysis identified customers who are both highly engaged and
@@ -314,8 +351,7 @@ Recommended Actions:
 • Provide early access to new products.
 • Personalize promotional campaigns.
 • Monitor purchasing behavior to reduce customer churn.
-
-===============================================================================
+----------------------------------------------------------------------------
 */
 
 /*
