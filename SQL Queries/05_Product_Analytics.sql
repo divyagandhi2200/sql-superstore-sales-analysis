@@ -153,19 +153,18 @@ ORDER BY SUM(Profit);
 
 /*
 ===============================================================================
-Summary
+Key Business Takeaways
 
-Key analyses completed in this file:
-
-✓ Top Revenue-Generating Products
-✓ High-Sales, Loss-Making Products
-✓ Product Rankings Within Categories
-✓ Category Profit Margin Analysis
-✓ Loss-Making Sub-Categories
-
-These analyses provide a comprehensive understanding of product
-performance and help identify opportunities to improve profitability,
-pricing strategies, and inventory management.
+• Product performance was evaluated using sales, profit,
+  and profit margin metrics.
+• Top-performing products were identified to support inventory
+  planning and promotional strategies.
+• High-selling products with negative profitability were highlighted,
+  revealing opportunities for pricing and cost optimization.
+• Product rankings within categories provided insights into
+  category leaders and underperforming products.
+• These findings help improve product portfolio decisions,
+  maximize profitability, and optimize overall business performance.
 
 ===============================================================================
 */
