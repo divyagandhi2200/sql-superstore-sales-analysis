@@ -57,3 +57,16 @@ dbo.superstore
 
 ===============================================================================
 */
+
+/*
+===============================================================================
+Key Takeaways
+
+• A dedicated SQL Server database was created to organize the Superstore dataset.
+• The dataset was imported successfully and stored in the dbo.superstore table.
+• Establishing a structured database ensures consistency, scalability, and
+  efficient querying throughout the project.
+• This setup serves as the foundation for all subsequent business analyses.
+
+===============================================================================
+*/
