@@ -105,31 +105,6 @@ ORDER BY Total_Profit DESC;
 /*
 ===============================================================================
 Business Question:
-Which states generate high sales but negative profit?
-
-Objective:
-Identify markets where revenue growth is not translating into
-profitability.
-
-Business Value:
-These states require investigation into pricing, discounts,
-operating costs, and supply chain efficiency.
-
-===============================================================================
-*/
-
-SELECT
-	State_Province AS State,
-	ROUND(SUM(Sales), 2) AS Total_Sales,
-	ROUND(SUM(Profit), 2) AS Total_Profit
-FROM dbo.superstore
-GROUP BY State_Province
-HAVING SUM(Profit) < 0
-ORDER BY Total_Sales DESC;
-
-/*
-===============================================================================
-Business Question:
 Which states require immediate management attention?
 
 Objective:
@@ -164,9 +139,6 @@ ORDER BY TotalProfit ASC;
 
 • Certain high-revenue states continue operating at a loss,
   highlighting opportunities for pricing and cost optimization.
-
-• Above-average performing states can serve as benchmarks
-  for improving lower-performing markets.
 
 • These insights support strategic regional planning,
   resource allocation, and long-term business expansion.
