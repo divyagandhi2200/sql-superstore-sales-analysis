@@ -146,19 +146,6 @@ GROUP BY YEAR(Order_Date)
 ORDER BY Year;
 
 /*
-Business Insight:
-
-Revenue increased year over year, indicating continued business growth.
-
-However, profit margins declined despite higher sales,
-suggesting increased costs, aggressive discounting,
-or reduced pricing efficiency.
-
-Management should focus on improving profitability
-rather than only increasing revenue.
-*/
-
-/*
 ===============================================================================
 Business Question:
 How does monthly sales performance change throughout the year?
@@ -203,15 +190,6 @@ ORDER BY
     Sales_Month;
 
 /*
-Business Insight:
-
-This analysis compares each month's sales with the previous month within the same year.
-Positive values indicate month-over-month growth, while negative values indicate a decline in sales.
-These insights help identify seasonal demand patterns, evaluate the impact of marketing campaigns, 
-and support better forecasting, inventory planning, and resource allocation.
-*/
-
-/*
 ===============================================================================
 Business Question:
 Which month generated the highest sales each year?
@@ -249,21 +227,18 @@ WHERE Month_Rank=1;
 
 /*
 ===============================================================================
-Summary
+Key Business Takeaways
 
-Key analyses completed in this file:
-
-✓ Revenue by Category
-✓ Revenue by Sub-Category
-✓ Revenue by Region
-✓ Monthly Sales Trend
-✓ Year-over-Year Performance
-✓ Month-over-Month Growth
-✓ Best Sales Month Each Year
-
-These insights provide a comprehensive view of the company's
-overall sales performance and form the foundation for the
-customer, product, and profitability analyses that follow.
+• Sales performance was analyzed across categories, sub-categories,
+  regions, months, and years.
+• Time-series analysis revealed seasonal trends and month-over-month
+  performance changes.
+• Year-over-year comparisons highlighted changes in revenue,
+  profitability, and overall business growth.
+• High-performing categories and regions were identified,
+  helping prioritize future business investments.
+• These insights support better forecasting, strategic planning,
+  and revenue optimization.
 
 ===============================================================================
 */
