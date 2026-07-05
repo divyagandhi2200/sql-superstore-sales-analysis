@@ -162,28 +162,6 @@ WHERE (Running_Total * 100.0 / Grand_Total) <= 80
 ORDER BY Total_Sales DESC;
 
 /*
-----------------------------------------------------------------------------
-Business Insight:
-
-This analysis identifies the customers responsible for generating the
-first 80% of total business revenue using the Pareto Principle.
-
-The results demonstrate that a relatively small group of customers
-contributes the majority of sales.
-
-These customers should be prioritized through:
-
-• Customer loyalty programs
-• Personalized promotions
-• Premium customer support
-• Retention strategies
-
-Protecting these high-value customers can significantly impact
-long-term revenue and business growth.
-----------------------------------------------------------------------------
-*/
-
-/*
 ===============================================================================
 Business Question:
 Which customers qualify as VIP customers based on their purchasing behavior?
@@ -331,45 +309,24 @@ LEFT JOIN Freq_Analysis
 	ON Rec_Analysis.Customer_ID = Freq_Analysis.Customer_ID
 LEFT JOIN Mon_Analysis 
 	ON Rec_Analysis.Customer_ID = Mon_Analysis.Customer_ID
-WHERE Rec_Analysis.Days_Since_Last_Order BETWEEN 0 AND 30 AND Freq_Analysis.Total_Orders >= 5 AND Mon_Analysis.Total_Sales >= 1000;
-
-/*
-----------------------------------------------------------------------------
-Business Insight:
-
-The RFM analysis identified customers who are both highly engaged and
-financially valuable to the business.
-
-These customers have purchased recently, order frequently, and contribute
-significantly to overall revenue.
-
-Retaining these customers is critical because acquiring a new customer is
-typically more expensive than retaining an existing one.
-
-Recommended Actions:
-• Offer exclusive loyalty rewards.
-• Provide early access to new products.
-• Personalize promotional campaigns.
-• Monitor purchasing behavior to reduce customer churn.
-----------------------------------------------------------------------------
-*/
+WHERE Rec_Analysis.Days_Since_Last_Order BETWEEN 0 AND 30 
+	AND Freq_Analysis.Total_Orders >= 5 
+	AND Mon_Analysis.Total_Sales >= 1000;
 
 /*
 ===============================================================================
-Summary
+Key Business Takeaways
 
-Key analyses completed in this file:
-
-✓ Customer Segment Performance
-✓ Top 10 Customers by Revenue
-✓ Repeat vs One-Time Customers
-✓ Pareto Analysis (Top 20% Customers)
-✓ VIP Customer Analysis (RFM)
-
-These analyses identify the company's most valuable customers,
-measure customer loyalty,
-and highlight opportunities to improve customer retention
-and long-term business growth.
+• Customer segments were evaluated based on sales and profitability.
+• High-value customers were identified using Pareto (80/20) Analysis,
+  demonstrating that a relatively small group of customers contributes
+  a significant share of total revenue.
+• Customer loyalty was assessed by distinguishing repeat customers
+  from one-time buyers.
+• RFM (Recency, Frequency, Monetary) Analysis identified VIP customers
+  with strong purchasing behavior and high business value.
+• These insights can support customer retention strategies,
+  loyalty programs, and personalized marketing campaigns.
 
 ===============================================================================
 */
