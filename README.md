@@ -76,7 +76,6 @@ Sub Categories 17
 ## Project Workflow
 
 Raw Dataset
-
         ↓
         
 Data Import into SQL Server
