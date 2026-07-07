@@ -49,6 +49,15 @@ The dataset contains retail transactions including:
 
 The dataset was imported into Microsoft SQL Server for analysis.
 
+## Metrics
+
+Rows Analyzed 9,994
+Orders 5,009
+Customers 793
+States 49
+Categories 3
+Sub Categories 17
+
 ## Tech Stack
 
 - SQL Server
