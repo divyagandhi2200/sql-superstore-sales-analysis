@@ -76,24 +76,43 @@ Sub Categories 17
 ## Project Workflow
 
 Raw Dataset
+
         ↓
+        
 Data Import into SQL Server
+
         ↓
+        
 Data Exploration
+
         ↓
+        
 Sales Performance Analysis
+
         ↓
+        
 Customer Analytics
+
         ↓
+        
 Product Analytics
+
         ↓
+        
 Regional Analysis
+
         ↓
+        
 Profitability Analysis
+
         ↓
+        
 Executive Business Recommendations
+
         ↓
+        
 Power BI Dashboard
+
 
 ## Repository Structure
 
