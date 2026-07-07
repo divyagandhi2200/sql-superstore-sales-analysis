@@ -52,11 +52,17 @@ The dataset was imported into Microsoft SQL Server for analysis.
 ## Metrics
 
 Rows Analyzed 9,994
+
 Orders 5,009
+
 Customers 793
+
 States 49
+
 Categories 3
+
 Sub Categories 17
+
 
 ## Tech Stack
 
@@ -116,14 +122,23 @@ Superstore-Sales-Analysis
 The project covers:
 
 ✔ Data Exploration
+
 ✔ Sales Analysis
+
 ✔ Customer Analytics
+
 ✔ Product Performance
+
 ✔ Regional Performance
+
 ✔ Profitability Analysis
+
 ✔ Pareto Analysis
+
 ✔ RFM Analysis
+
 ✔ Executive Business Reporting
+
 
 ## Dashboard Preview
 
